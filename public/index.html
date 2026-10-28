@@ -3,13 +3,13 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>TuApp – Pedí online</title>
-<meta name="description" content="Armá tu pedido y mandalo directo por WhatsApp. Jueves a martes, de 19:00 a 00:00.">
-<meta name="theme-color" content="#d9480f">
+<title>Smash Burgers Leones – Pedí online</title>
+<meta name="description" content="Armá tu pedido de burguers, lomos, sandwichs y más, y mandalo directo por WhatsApp. Jueves a martes, de 19:00 a 00:00.">
+<meta name="theme-color" content="#4a1ee7">
 <link rel="icon" type="image/png" href="logo.png">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="es_AR">
-<meta property="og:title" content="TuApp – Pedí online">
+<meta property="og:title" content="Smash Burgers Leones – Pedí online">
 <meta property="og:description" content="Mirá la carta, armá tu pedido y mandalo por WhatsApp. Jueves a martes, de 19:00 a 00:00.">
 <meta property="og:image" content="preview-leones.jpg">
 <meta property="og:image:width" content="1200">
@@ -18,19 +18,19 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@700;800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#fff6ea;--surface:#fff;--ink:#1f1408;--muted:#6b5a45;--line:#f0d9bd;--green:#d9480f;--green-ink:#fff;--cheese:#ffd21f;--cheese-ink:#2a1b00;--danger:#b3261e;
+:root{--bg:#f5f4ff;--surface:#fff;--ink:#0b0a1f;--muted:#5a5780;--line:#dedaf5;--green:#4a1ee7;--green-ink:#fff;--cheese:#07b6a3;--cheese-ink:#031f1b;--hdr:linear-gradient(110deg,#3a14c9 0%,#4a1ee7 55%,#0a7fb0 100%);--danger:#b3261e;
 box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#1a120b;--surface:#271a10;--ink:#fff3e4;--muted:#c9b49a;--line:#46301d;--green:#ff8a3d;--green-ink:#2a1000;--danger:#ff8a80}}
-:root[data-theme="dark"]{--bg:#1a120b;--surface:#271a10;--ink:#fff3e4;--muted:#c9b49a;--line:#46301d;--green:#ff8a3d;--green-ink:#2a1000;--danger:#ff8a80}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0b0a1f;--surface:#15132f;--ink:#f1efff;--muted:#aaa6d1;--line:#2a2652;--green:#8b6bff;--green-ink:#0b0a1f;--danger:#ff8a80}}
+:root[data-theme="dark"]{--bg:#0b0a1f;--surface:#15132f;--ink:#f1efff;--muted:#aaa6d1;--line:#2a2652;--green:#8b6bff;--green-ink:#0b0a1f;--danger:#ff8a80}
 html{scroll-padding-top:env(safe-area-inset-top,0px)}
 *,*::before,*::after{box-sizing:inherit}
 body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.45 "DM Sans",system-ui,sans-serif;padding-bottom:96px}
-header{padding:14px 20px 16px;background:var(--green);color:var(--green-ink);text-align:center}
+header{padding:14px 20px 16px;background:var(--hdr);color:#fff;text-align:center}
 header h1{margin:0}
 .logo{display:block;margin:0 auto;width:min(46vw,185px);height:auto}
-.lema{margin:6px auto 0;max-width:none;font:400 clamp(.74rem,3.7vw,1.05rem)/1.2 "Archivo Black",Impact,sans-serif;color:var(--green-ink);text-wrap:balance}
+.lema{margin:6px auto 0;max-width:none;font:800 clamp(.74rem,3.7vw,1.05rem)/1.2 "Outfit",system-ui,sans-serif;color:#fff;text-wrap:balance}
 .how{margin:8px auto 0;max-width:none;text-wrap:balance}
 .how b{display:block;font-size:.95rem;font-weight:700}
 .how span{display:block;font-size:.8rem;opacity:.85;margin-top:1px}
@@ -49,15 +49,15 @@ nav a.on{background:var(--cheese);border-color:var(--cheese);color:var(--cheese-
 .hrs{margin:6px 0 0;font-size:.9rem;opacity:.92}
 section.promo{background:var(--cheese);color:var(--cheese-ink);border-radius:16px;padding:14px 16px 4px}
 .promo h2{border-bottom-color:var(--cheese-ink)}
-.promo .info p{color:#4a3500}
+.promo .info p{color:#0b3b36}
 .promo .item{border-color:rgba(0,0,0,.18)}.promo .item:last-child{border-bottom:0}
-.promo .ph{background:#fff3b0;border-color:rgba(0,0,0,.15);width:44px;height:44px;border-radius:10px;font-size:1.4rem}
+.promo .ph{background:#c9f5ee;border-color:rgba(0,0,0,.15);width:44px;height:44px;border-radius:10px;font-size:1.4rem}
 .promo .ph.emo{display:none}
 .promo .info h3{font-size:.95rem}
-.promo .add{background:#1f1408;color:#ffd21f;padding:10px 14px}
-.promo .qty{background:#fff;color:#2a1b00;border-color:#fff}
-.promo .tag{background:#1f1408;color:#ffd21f}
-.promo .more{color:#1f1408}
+.promo .add{background:#0b0a1f;color:#7ff0e0;padding:10px 14px}
+.promo .qty{background:#fff;color:#031f1b;border-color:#fff}
+.promo .tag{background:#0b0a1f;color:#7ff0e0}
+.promo .more{color:#0b0a1f}
 .chips{display:flex;flex-wrap:wrap;gap:8px}
 .chip{padding:9px 14px;border-radius:999px;background:var(--surface);border:2px solid var(--cheese);font-weight:700;font-size:.9rem}
 footer{max-width:640px;margin:32px auto 0;padding:20px 16px;border-top:1px solid var(--line);color:var(--muted)}
@@ -76,7 +76,7 @@ footer a.btn{display:inline-block;margin:8px 8px 0 0;padding:10px 16px;border-ra
 @media (prefers-reduced-motion:no-preference){#toast{transition:opacity .18s,transform .18s}}
 .payinfo{margin-top:8px;padding:12px;border-radius:10px;background:var(--surface);border:2px dashed var(--cheese)}
 .payinfo button{margin-left:8px;padding:6px 12px;border-radius:999px;background:var(--cheese);color:var(--cheese-ink);font-weight:700}
-h2{font:400 1.4rem/1.1 "Archivo Black",Impact,sans-serif;margin:0 0 10px;padding-bottom:8px;border-bottom:3px solid var(--cheese)}
+h2{font:800 1.4rem/1.1 "Outfit",system-ui,sans-serif;margin:0 0 10px;padding-bottom:8px;border-bottom:3px solid var(--cheese)}
 .item{display:flex;gap:12px;align-items:center;justify-content:space-between;padding:14px 0;border-bottom:1px solid var(--line)}
 .info{min-width:0}
 .info h3{margin:0;font-size:1.05rem}
@@ -118,8 +118,8 @@ input,select,textarea{width:100%;font:inherit;padding:12px;border-radius:10px;bo
 </head>
 <body>
 <header>
-  <h1 id="brand"><img class="logo" src="logo.png" alt="TuApp" width="640" height="615"></h1>
-  <p class="lema">Come rico, come con TuApp.</p>
+  <h1 id="brand"><img class="logo" src="logo.png" alt="Smash Burger" width="640" height="615"></h1>
+  <p class="lema">Come rico, come con Smash Burgers.</p>
   <p class="how"><b>Armá tu pedido y mandalo directo por WhatsApp.</b><span>Lo preparamos al instante.</span></p>
   <div class="status"><span class="dot" id="dot"></span><span id="status"></span></div>
   <p class="hrs">Jueves a martes, de 19:00 a 00:00</p>
