@@ -4,17 +4,22 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex">
-<title>Admin – Smash Burger</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@800&family=DM+Sans:wght@400;700&display=swap" rel="stylesheet">
+<title>Admin – Catálogo TuApp</title>
 <style>
-:root{--bg:#fff6ea;--surface:#fff;--ink:#1f1408;--muted:#6b5a45;--line:#f0d9bd;--main:#d9480f;--cheese:#ffd21f}
+:root{--bg:#f5f4ff;--surface:#fff;--ink:#0b0a1f;--muted:#5a5780;--line:#dedaf5;--main:#4a1ee7;--cheese:#07b6a3}
+@media (prefers-color-scheme:dark){:root{--bg:#0b0a1f;--surface:#15132f;--ink:#f1efff;--muted:#aaa6d1;--line:#2a2652;--main:#8b6bff}}
 *{box-sizing:border-box}
 body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.45 "DM Sans",system-ui,sans-serif;padding:16px 16px 90px}
 .wrap{max-width:760px;margin:0 auto}
-h1{font:400 1.5rem "Archivo Black",Impact,sans-serif;margin:0 0 12px}
+h1{font:800 1.5rem "Outfit",system-ui,sans-serif;margin:0 0 12px}
 input,select,button{font:inherit;padding:10px;border-radius:10px;border:2px solid var(--line);background:var(--surface);color:var(--ink);width:100%}
 button{cursor:pointer;font-weight:700;width:auto}
 .pri{background:var(--main);color:#fff;border-color:var(--main)}
-.add{background:var(--cheese);border-color:var(--cheese)}
+@media (prefers-color-scheme:dark){.pri{color:#0b0a1f}}
+.add{background:var(--cheese);border-color:var(--cheese);color:#031f1b}
 .del{color:#b3261e}
 .cat{background:var(--surface);border:2px solid var(--line);border-radius:16px;padding:14px;margin:16px 0}
 .item{border-top:1px solid var(--line);padding:12px 0;display:grid;grid-template-columns:72px 1fr;gap:10px}
@@ -109,3 +114,4 @@ tok ? load() : render();
 </script>
 </body>
 </html>
+
