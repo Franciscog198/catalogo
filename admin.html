@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Admin – Smash Burger</title>
+<style>
+:root{--bg:#fff6ea;--surface:#fff;--ink:#1f1408;--muted:#6b5a45;--line:#f0d9bd;--main:#d9480f;--cheese:#ffd21f}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.45 "DM Sans",system-ui,sans-serif;padding:16px 16px 90px}
+.wrap{max-width:760px;margin:0 auto}
+h1{font:400 1.5rem "Archivo Black",Impact,sans-serif;margin:0 0 12px}
+input,select,button{font:inherit;padding:10px;border-radius:10px;border:2px solid var(--line);background:var(--surface);color:var(--ink);width:100%}
+button{cursor:pointer;font-weight:700;width:auto}
+.pri{background:var(--main);color:#fff;border-color:var(--main)}
+.add{background:var(--cheese);border-color:var(--cheese)}
+.del{color:#b3261e}
+.cat{background:var(--surface);border:2px solid var(--line);border-radius:16px;padding:14px;margin:16px 0}
+.item{border-top:1px solid var(--line);padding:12px 0;display:grid;grid-template-columns:72px 1fr;gap:10px}
+.item .f{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.item .f .w{grid-column:1/-1}
+.ph{width:72px;height:72px;border-radius:12px;border:2px solid var(--line);object-fit:cover;background:#fff}
+.row{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-top:8px}
+.chk{display:flex;gap:6px;align-items:center;width:auto}.chk input{width:auto}
+#bar{position:fixed;left:0;right:0;bottom:0;background:var(--bg);border-top:1px solid var(--line);padding:12px 16px}
+#bar div{max-width:760px;margin:0 auto;display:flex;gap:8px}
+#bar .pri{flex:1}
+.msg{font-weight:700;margin:8px 0}
+.err{color:#b3261e}
+.login{max-width:340px;margin:12vh auto 0;display:grid;gap:10px}
+small{color:var(--muted)}
+</style>
+</head>
+<body>
+<div class="wrap" id="app"></div>
+<script>
+const API = "/.netlify/functions/menu", $ = s => document.querySelector(s);
+let tok = sessionStorage.getItem("tok"), menu = [], msg = "", ok = true;
+const esc = s => String(s ?? "").replace(/"/g, "&quot;");
+
+async function load() { try { menu = await (await fetch(API, { cache: "no-store" })).json(); } catch (_) { menu = []; } render(); }
+function render() {
+  const a = $("#app");
+  if (!tok) {
+    a.innerHTML = `<div class="login"><h1>Administrar carta</h1><input id="u" placeholder="Usuario" autocomplete="username"><input id="p" type="password" placeholder="Contraseña" autocomplete="current-password"><button class="pri" data-a="login">Ingresar</button><p class="msg err">${msg}</p></div>`;
+    return;
+  }
+  a.innerHTML = `<h1>Carta</h1>` + (menu.length ? "" : `<p>Todavía no hay una carta guardada. <button class="add" data-a="import">Importar la carta actual del sitio</button></p>`) +
+    menu.map((c, ci) => `<div class="cat"><div class="row" style="margin-top:0"><input data-c="${ci}" data-f="cat" value="${esc(c.cat)}" style="flex:1" placeholder="Nombre de la categoría"><button class="del" data-a="delCat" data-c="${ci}">Borrar</button></div>
+      <div class="row"><input data-c="${ci}" data-f="incl" value="${esc(c.incl)}" style="flex:1" placeholder="Aviso (ej: Todas incluyen papas)"><label class="chk"><input type="checkbox" data-c="${ci}" data-f="promo" ${c.promo ? "checked" : ""}>Promo (amarillo)</label></div>
+      ${c.items.map((i, ii) => `<div class="item"><div><img class="ph" src="${i.foto || ""}" alt="" onerror="this.style.visibility='hidden'"><input type="file" accept="image/*" data-a="foto" data-c="${ci}" data-i="${ii}" style="padding:4px;font-size:.7rem;width:72px"></div>
+        <div class="f"><input class="w" data-c="${ci}" data-i="${ii}" data-f="n" value="${esc(i.n)}" placeholder="Nombre">
+        <input class="w" data-c="${ci}" data-i="${ii}" data-f="d" value="${esc(i.d)}" placeholder="Descripción">
+        <input type="number" data-c="${ci}" data-i="${ii}" data-f="p" value="${i.p ?? ""}" placeholder="Precio (vacío = a confirmar)">
+        <select data-c="${ci}" data-i="${ii}" data-f="k">${[["", "Producto simple"], ["b", "Hamburguesa (pan + medallón extra)"], ["c", "Combo (elige pan)"], ["p", "Plato (ensalada o fritas)"]].map(([v, t]) => `<option value="${v}" ${(i.k || "") === v ? "selected" : ""}>${t}</option>`).join("")}</select>
+        <input data-c="${ci}" data-i="${ii}" data-f="tag" value="${esc(i.tag)}" placeholder="Etiqueta (ej: Más pedidos)">
+        <div class="row" style="margin:0"><label class="chk"><input type="checkbox" data-c="${ci}" data-i="${ii}" data-f="agotado" ${i.agotado ? "checked" : ""}>Agotado</label><button class="del" data-a="delItem" data-c="${ci}" data-i="${ii}">Borrar</button></div></div></div>`).join("")}
+      <div class="row"><button class="add" data-a="addItem" data-c="${ci}">+ Producto</button></div></div>`).join("") +
+    `<button class="add" data-a="addCat">+ Categoría</button><p class="msg ${ok ? "" : "err"}" id="m">${msg}</p>
+    <div id="bar"><div><button data-a="logout">Salir</button><button class="pri" data-a="save">Guardar cambios</button></div></div>`;
+}
+const say = (t, g = true) => { msg = t; ok = g; const m = $("#m"); if (m) { m.textContent = t; m.className = "msg" + (g ? "" : " err"); } };
+
+document.addEventListener("input", e => {
+  const t = e.target, f = t.dataset.f; if (!f) return;
+  const o = t.dataset.i != null ? menu[t.dataset.c].items[t.dataset.i] : menu[t.dataset.c];
+  o[f] = t.type === "checkbox" ? t.checked : f === "p" ? (t.value === "" ? null : +t.value) : t.value;
+});
+document.addEventListener("change", e => {
+  const t = e.target; if (t.dataset.a !== "foto" || !t.files[0]) return;
+  const img = new Image(), r = new FileReader();
+  r.onload = () => { img.src = r.result; };
+  img.onload = () => {
+    const s = Math.min(1, 600 / Math.max(img.width, img.height)), c = document.createElement("canvas");
+    c.width = img.width * s; c.height = img.height * s; c.getContext("2d").drawImage(img, 0, 0, c.width, c.height);
+    menu[t.dataset.c].items[t.dataset.i].foto = c.toDataURL("image/jpeg", .8); render();
+  };
+  r.readAsDataURL(t.files[0]);
+});
+document.addEventListener("click", async e => {
+  const b = e.target.closest("button[data-a]"); if (!b) return;
+  const a = b.dataset.a, c = +b.dataset.c, i = +b.dataset.i;
+  if (a === "login") {
+    let r, d;
+    try { r = await fetch(API, { method: "POST", body: JSON.stringify({ user: $("#u").value, pass: $("#p").value }) }); d = await r.json(); }
+    catch (_) { msg = r && r.status === 404 ? "No se encuentra la función en " + API + " (404). Revisá que menu.mjs esté en netlify/functions y que uses netlify dev en el puerto 8888." : "La función no respondió (código " + (r ? r.status : "sin conexión") + "). Revisá la terminal de netlify dev."; return render(); }
+    if (!r.ok) { msg = d.error; return render(); }
+    tok = d.token; sessionStorage.setItem("tok", tok); msg = ""; return load();
+  }
+  if (a === "logout") { tok = null; sessionStorage.removeItem("tok"); return render(); }
+  if (a === "import") {
+    try { const t = await (await fetch("/")).text(); menu = new Function("return " + t.match(/const MENU = (\[[\s\S]*?\n\]);/)[1])(); render(); say("Carta importada. Tocá Guardar cambios."); }
+    catch (_) { say("No se pudo importar la carta.", false); }
+    return;
+  }
+  if (a === "addCat") menu.push({ cat: "Nueva categoría", incl: "", items: [] });
+  if (a === "delCat" && confirm("¿Borrar la categoría y todos sus productos?")) menu.splice(c, 1);
+  if (a === "addItem") menu[c].items.push({ id: "p" + Date.now(), n: "", d: "", p: null, k: "" });
+  if (a === "delItem" && confirm("¿Borrar este producto?")) menu[c].items.splice(i, 1);
+  if (a === "save") {
+    const r = await fetch(API, { method: "PUT", headers: { authorization: "Bearer " + tok }, body: JSON.stringify(menu) }), d = await r.json();
+    if (r.status === 401) { tok = null; msg = "Tu sesión venció, ingresá de nuevo."; return render(); }
+    return say(r.ok ? "Guardado. Ya se ve en el sitio." : d.error, r.ok);
+  }
+  render();
+});
+tok ? load() : render();
+</script>
+</body>
+</html>

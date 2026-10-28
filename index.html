@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Smash Burgers Leones – Pedí online</title>
+<meta name="description" content="Armá tu pedido de burguers, lomos, sandwichs y más, y mandalo directo por WhatsApp. Jueves a martes, de 19:00 a 00:00.">
+<meta name="theme-color" content="#d9480f">
+<link rel="icon" type="image/png" href="logo.png">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="es_AR">
+<meta property="og:title" content="Smash Burgers Leones – Pedí online">
+<meta property="og:description" content="Mirá la carta, armá tu pedido y mandalo por WhatsApp. Jueves a martes, de 19:00 a 00:00.">
+<meta property="og:image" content="preview-leones.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:image" content="preview-leones.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#fff6ea;--surface:#fff;--ink:#1f1408;--muted:#6b5a45;--line:#f0d9bd;--green:#d9480f;--green-ink:#fff;--cheese:#ffd21f;--cheese-ink:#2a1b00;--danger:#b3261e;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#1a120b;--surface:#271a10;--ink:#fff3e4;--muted:#c9b49a;--line:#46301d;--green:#ff8a3d;--green-ink:#2a1000;--danger:#ff8a80}}
+:root[data-theme="dark"]{--bg:#1a120b;--surface:#271a10;--ink:#fff3e4;--muted:#c9b49a;--line:#46301d;--green:#ff8a3d;--green-ink:#2a1000;--danger:#ff8a80}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*,*::before,*::after{box-sizing:inherit}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.45 "DM Sans",system-ui,sans-serif;padding-bottom:96px}
+header{padding:14px 20px 16px;background:var(--green);color:var(--green-ink);text-align:center}
+header h1{margin:0}
+.logo{display:block;margin:0 auto;width:min(46vw,185px);height:auto}
+.lema{margin:6px auto 0;max-width:none;font:400 clamp(.74rem,3.7vw,1.05rem)/1.2 "Archivo Black",Impact,sans-serif;color:var(--green-ink);text-wrap:balance}
+.how{margin:8px auto 0;max-width:none;text-wrap:balance}
+.how b{display:block;font-size:.95rem;font-weight:700}
+.how span{display:block;font-size:.8rem;opacity:.85;margin-top:1px}
+main{max-width:640px;margin:0 auto;padding:8px 16px}
+section{margin-top:24px;scroll-margin-top:calc(64px + env(safe-area-inset-top,0px))}
+@media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:3;background:var(--bg);border-bottom:1px solid var(--line);display:flex;gap:8px;overflow-x:auto;padding:10px 16px;scrollbar-width:none}
+nav::-webkit-scrollbar{display:none}
+nav a{flex:none;padding:8px 14px;border-radius:999px;background:var(--surface);border:2px solid var(--line);color:var(--ink);text-decoration:none;font-weight:700;font-size:.9rem}
+nav a.on{background:var(--cheese);border-color:var(--cheese);color:var(--cheese-ink)}
+.row{display:flex;gap:12px;align-items:center;flex:1;min-width:0}
+.ph{width:72px;height:72px;border-radius:14px;background:var(--surface);border:2px solid var(--line);display:grid;place-items:center;font-size:2rem;flex:none;overflow:hidden}
+.ph img{width:100%;height:100%;object-fit:contain;background:#fff}
+.status{display:inline-flex;gap:8px;align-items:center;margin-top:10px;padding:6px 12px;border-radius:999px;background:rgba(255,255,255,.22);font-weight:700}
+.dot{width:10px;height:10px;border-radius:50%;background:#8dff9f}.dot.off{background:#ffb3a8}
+.hrs{margin:6px 0 0;font-size:.9rem;opacity:.92}
+section.promo{background:var(--cheese);color:var(--cheese-ink);border-radius:16px;padding:14px 16px 4px}
+.promo h2{border-bottom-color:var(--cheese-ink)}
+.promo .info p{color:#4a3500}
+.promo .item{border-color:rgba(0,0,0,.18)}.promo .item:last-child{border-bottom:0}
+.promo .ph{background:#fff3b0;border-color:rgba(0,0,0,.15);width:44px;height:44px;border-radius:10px;font-size:1.4rem}
+.promo .ph.emo{display:none}
+.promo .info h3{font-size:.95rem}
+.promo .add{background:#1f1408;color:#ffd21f;padding:10px 14px}
+.promo .qty{background:#fff;color:#2a1b00;border-color:#fff}
+.promo .tag{background:#1f1408;color:#ffd21f}
+.promo .more{color:#1f1408}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{padding:9px 14px;border-radius:999px;background:var(--surface);border:2px solid var(--cheese);font-weight:700;font-size:.9rem}
+footer{max-width:640px;margin:32px auto 0;padding:20px 16px;border-top:1px solid var(--line);color:var(--muted)}
+footer b{color:var(--ink)}
+footer p{margin:0 0 6px}
+footer a.btn{display:inline-block;margin:8px 8px 0 0;padding:10px 16px;border-radius:999px;background:var(--cheese);color:var(--cheese-ink);font-weight:700;text-decoration:none}
+.hint a{color:var(--green);font-weight:700}
+.tag{display:block;width:fit-content;white-space:nowrap;font-size:.7rem;line-height:1.2;background:var(--cheese);color:var(--cheese-ink);padding:3px 9px;border-radius:999px;margin:4px 0 0}
+.add:disabled{opacity:.5;cursor:not-allowed}
+.ctlwrap{display:flex;flex-direction:column;align-items:flex-end;gap:2px;flex:none}
+.more{background:none;font-size:.78rem;font-weight:700;color:var(--green);text-decoration:underline;padding:6px 4px}
+.opt{margin-top:6px;min-height:36px;padding:6px 12px;border-radius:999px;background:var(--surface);border:2px solid var(--line);font-size:.8rem;font-weight:700;color:var(--ink)}
+.opt[aria-pressed="true"]{background:var(--cheese);border-color:var(--cheese);color:var(--cheese-ink)}
+#toast{position:fixed;left:50%;bottom:calc(92px + env(safe-area-inset-bottom,0px));transform:translate(-50%,8px);background:var(--cheese);color:var(--cheese-ink);padding:10px 18px;border-radius:999px;font-weight:700;box-shadow:0 4px 16px rgba(0,0,0,.3);opacity:0;pointer-events:none;z-index:9;white-space:nowrap}
+#toast.on{opacity:1;transform:translate(-50%,0)}
+@media (prefers-reduced-motion:no-preference){#toast{transition:opacity .18s,transform .18s}}
+.payinfo{margin-top:8px;padding:12px;border-radius:10px;background:var(--surface);border:2px dashed var(--cheese)}
+.payinfo button{margin-left:8px;padding:6px 12px;border-radius:999px;background:var(--cheese);color:var(--cheese-ink);font-weight:700}
+h2{font:400 1.4rem/1.1 "Archivo Black",Impact,sans-serif;margin:0 0 10px;padding-bottom:8px;border-bottom:3px solid var(--cheese)}
+.item{display:flex;gap:12px;align-items:center;justify-content:space-between;padding:14px 0;border-bottom:1px solid var(--line)}
+.info{min-width:0}
+.info h3{margin:0;font-size:1.05rem}
+.info p{margin:2px 0 6px;color:var(--muted);font-size:.9rem}
+.info b{font-size:1rem}
+button{font:inherit;cursor:pointer;border:0;color:inherit}
+button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid var(--cheese);outline-offset:2px}
+.add{background:var(--cheese);color:var(--cheese-ink);font-weight:700;padding:10px 16px;border-radius:999px;flex:none}
+.qty{display:flex;align-items:center;gap:4px;background:var(--surface);border:2px solid var(--line);border-radius:999px;flex:none}
+.qty button{width:40px;height:40px;background:none;font-size:1.3rem;font-weight:700;border-radius:999px}
+.qty span{min-width:22px;text-align:center;font-weight:700}
+#bar{position:fixed;left:0;right:0;bottom:0;padding:12px 16px calc(12px + env(safe-area-inset-bottom,0px));background:var(--bg);border-top:1px solid var(--line);display:none}
+#bar.on{display:block}
+#bar button{display:flex;justify-content:space-between;width:100%;max-width:640px;margin:0 auto;padding:16px 20px;border-radius:14px;background:var(--green);color:var(--green-ink);font-weight:700;font-size:1.05rem}
+#sheet,#cfg{position:fixed;inset:0;background:rgba(0,0,0,.55);display:none;z-index:5}
+#sheet.on,#cfg.on{display:flex;align-items:flex-end;justify-content:center}
+#cfg{z-index:6}
+.panel{background:var(--bg);width:100%;max-width:640px;max-height:92%;overflow-y:auto;border-radius:20px 20px 0 0;padding:20px 16px calc(20px + env(safe-area-inset-bottom,0px))}
+.top{display:flex;justify-content:space-between;align-items:center}
+.top h2{border:0;margin:0;padding:0}
+.x{background:var(--surface);width:40px;height:40px;border-radius:50%;font-size:1.2rem}
+.line{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:10px 0;border-bottom:1px solid var(--line)}
+.line .qty{transform:scale(.9);transform-origin:right}
+.total{display:flex;justify-content:space-between;font-weight:700;font-size:1.15rem;padding:14px 0}
+label{display:block;font-weight:700;margin:12px 0 4px}
+input,select,textarea{width:100%;font:inherit;padding:12px;border-radius:10px;border:2px solid var(--line);background:var(--surface);color:var(--ink)}
+.seg{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:8px}
+.sum{display:flex;justify-content:space-between;color:var(--muted)}
+.cfgh{font-weight:700;margin:16px 0 6px}
+.seg button{padding:12px;border-radius:10px;background:var(--surface);border:2px solid var(--line);font-weight:700}
+.seg button[aria-pressed="true"]{background:var(--cheese);border-color:var(--cheese);color:var(--cheese-ink)}
+#err{color:var(--danger);font-weight:700;min-height:1.4em;margin:10px 0 0}
+#send,#sendOrder{width:100%;margin-top:8px;padding:16px;border-radius:14px;background:var(--green);color:var(--green-ink);font-weight:700;font-size:1.05rem}
+.hint{color:var(--muted);font-size:.85rem;margin:8px 0 0}
+.incl{margin:0 0 4px;font-weight:700;color:var(--green)}
+.empty{color:var(--muted);padding:18px 0}
+@media (prefers-reduced-motion:no-preference){.panel{animation:up .22s ease-out}@keyframes up{from{transform:translateY(40px);opacity:.4}}}
+</style>
+</head>
+<body>
+<header>
+  <h1 id="brand"><img class="logo" src="logo.png" alt="Smash Burger" width="640" height="615"></h1>
+  <p class="lema">Come rico, come con Smash Burgers.</p>
+  <p class="how"><b>Armá tu pedido y mandalo directo por WhatsApp.</b><span>Lo preparamos al instante.</span></p>
+  <div class="status"><span class="dot" id="dot"></span><span id="status"></span></div>
+  <p class="hrs">Jueves a martes, de 19:00 a 00:00</p>
+</header>
+<nav id="nav" aria-label="Categorías"></nav>
+<main id="menu"></main>
+<footer id="foot"></footer>
+<div id="bar"><button id="open"></button></div>
+<div id="toast" role="status" aria-live="polite"></div>
+<div id="cfg" role="dialog" aria-modal="true" aria-label="Elegí las opciones"><div class="panel" id="cfgp"></div></div>
+<div id="sheet" role="dialog" aria-modal="true" aria-label="Tu pedido"><div class="panel">
+  <div class="top"><h2>Tu pedido</h2><button class="x" id="close" aria-label="Cerrar">✕</button></div>
+  <div id="lines"></div>
+  <div id="sums"></div>
+  <div id="sugs"></div>
+  <label for="name">Tu nombre</label>
+  <input id="name" autocomplete="name">
+  <label>¿Cómo lo recibís?</label>
+  <div class="seg"><button type="button" data-m="Retiro en el local" aria-pressed="true">Retiro en el local</button><button type="button" data-m="Envío a domicilio" aria-pressed="false">Envío a domicilio</button></div>
+  <p class="hint" id="retiroBox"></p>
+  <div id="addrBox" hidden><label for="addr">Dirección</label><input id="addr" autocomplete="street-address"><p class="hint">El costo del envío se suma al total.</p></div>
+  <label for="pay">Forma de pago</label>
+  <select id="pay"><option>Efectivo</option><option>Transferencia</option></select>
+  <div class="payinfo" id="payInfo" hidden></div>
+  <label for="note">Aclaraciones (opcional)</label>
+  <textarea id="note" rows="2" placeholder="Sin cebolla, punto de la carne, etc."></textarea>
+  <p class="hint">Tus datos quedan guardados solo en este celular, para pedir más rápido la próxima vez.</p>
+  <p class="hint" id="closedNote"></p>
+  <p id="err" role="alert"></p>
+  <button id="sendOrder">Enviar pedido por WhatsApp</button>
+</div></div>
+<script>
+// ====== EDITÁ ESTO CONFIG ======
+const CONFIG = { nombre: "TuApp", whatsapp: "5493512153191", envio: 2000, medallon: 3500,
+  panes: ["Pan de papa", "Pan de queso"],
+  dias: [4, 5, 6, 0, 1, 2], abre: 19, // jueves a martes, de 19:00 a 00:00 (hora de Argentina)
+  direccion: "Tu dirección, Ciudad, Provincia",
+  hoja: "", // link CSV de una hoja de Google publicada (opcional)
+  alias: "TUAPP.ALIAS", titular: "Nombre del titular" };
+const FOTOS = {};
+"queen infantil ed tropi smash classic american agri triple sandmc sandma lomoxlc lomoxla lomoxlag mlomoag mlomoa mlomoc famverd famclas famamer lomoplato milnapo milcab mil4q milsmash quaker oreo tiramisu xpapas xched xroq cocav spritev coca15 sprite15 zero15".split(" ").forEach(id => FOTOS[id] = "fotos/" + id + ".jpg");
+const IC = { "Promo del día": "🔥", "Burguers": "🍔", "Burgers especiales": "🍔", "Lomos": "🥪", "Sandwichs": "🥪", "Al plato": "🍽️", "Postres": "🍰", "Extras": "🍟", "Bebidas": "🥤" };
+const MENU = [
+  { cat: "Promo del día", promo: true, incl: "", items: [
+    { id: "combo1", n: "Super combo clásica", d: "3 burguers clásicas + papas + Coca-Cola 1,25 l", p: 32000, k: "c", tag: "Más pedidos" },
+    { id: "combo2", n: "Super combo american", d: "3 burguers american + papas + Coca-Cola 1,25 l", p: 35000, k: "c", tag: "Más pedidos" }
+  ]},
+  { cat: "Burguers", incl: "Todas incluyen papas", items: [
+    { id: "classic", n: "Classic Burguer", d: "Pan a elección, medallón de roast beef, lechuga, tomate, huevo, jamón y queso.", p: 14000, k: "b" },
+    { id: "agri", n: "Agri Burguer", d: "Pan a elección, medallón de roast beef, queso tybo, queso roquefort, cebolla caramelizada, huevo y salsa ByQ.", p: 15000, k: "b" },
+    { id: "smash", n: "Smash Burguer", d: "Pan a elección, x2 medallón de roast beef, huevo, cheddar, panceta, champiñones, queso RQ, queso tybo y cebolla caramelizada.", p: 18000, k: "b" },
+    { id: "american", n: "American Burguer", d: "Pan a elección, medallón de roast beef, lechuga, tomate, huevo, queso tybo, queso cheddar y bacon.", p: 15000, k: "b" },
+    { id: "infantil", n: "Burguer Infantil", d: "Pan a elección, medallón de roast beef, jamón y queso.", p: 12000, k: "b" },
+    { id: "ed", n: "Burguer ¡ED!", d: "Pan a elección, x2 medallón de roast beef, cheddar, cebolla morada y ketchup.", p: 16000, k: "b" }
+  ]},
+  { cat: "Burgers especiales", incl: "Todas incluyen papas", items: [
+    { id: "triple", n: "Triple Smash", d: "Pan a elección, x3 medallón de roast beef, cheddar, queso roquefort, queso muzzarella y queso tybo.", p: 17000, k: "b" },
+    { id: "queen", n: "Burguer Queen", d: "Pan a elección, medallón de roast beef, doble queso tybo, champiñones, salsa de ajo, perejil y cebolla.", p: 16000, k: "b" },
+    { id: "tropi", n: "Tropi Smash", d: "Pan a elección, x2 medallón de roast beef, huevo, chimichurri, cebolla morada caramelizada, ananá y queso provolone.", p: 17000, k: "b" }
+  ]},
+  { cat: "Lomos", incl: "Todos incluyen papas", items: [
+    { id: "lomoxlc", n: "Lomito XL Classic", d: "Pan, bife, lechuga, tomate, huevo, jamón y queso tybo.", p: 31000 },
+    { id: "lomoxla", n: "Lomito XL Americano", d: "Pan, bife, lechuga, tomate, huevo, jamón, queso tybo, cheddar y bacon.", p: 32000 },
+    { id: "lomoxlag", n: "Lomito XL Agri", d: "Pan, bife, jamón y queso tybo, huevo, queso roquefort, cebolla caramelizada y salsa ByQ.", p: 32000 },
+    { id: "mlomoc", n: "Medio Lomito Classic", d: "Pan, bife, lechuga, tomate, huevo, jamón y queso tybo.", p: 19000 },
+    { id: "mlomoa", n: "Medio Lomito Americano", d: "Pan, bife, lechuga, tomate, huevo, jamón, queso tybo, cheddar y bacon.", p: 20000 }
+  ]},
+  { cat: "Sandwichs", incl: "Todos incluyen papas", items: [
+    { id: "famverd", n: "Familiar de Verdura XL", d: "Pan, lechuga, tomate, jamón y queso tybo, huevo.", p: 16000 },
+    { id: "famclas", n: "Familiar Classic XL", d: "Pan, jamón y queso tybo.", p: 15000 },
+    { id: "famamer", n: "Familiar XL Americano", d: "Pan, jamón y queso tybo, queso cheddar y bacon.", p: 17000 },
+    { id: "sandmc", n: "Sandw Milanesa Classic", d: "Pan, milanesa, lechuga, tomate, jamón y queso tybo, huevo.", p: 31000 },
+    { id: "sandma", n: "Sandw Milanesa Americano", d: "Pan, milanesa, lechuga, tomate, jamón y queso tybo, cheddar y bacon, huevo.", p: null }
+  ]},
+  { cat: "Al plato", incl: "Todos incluyen papas", items: [
+    { id: "lomoplato", n: "Lomo al plato", d: "Con ensalada o fritas.", p: 26000, k: "p" },
+    { id: "milplato", n: "Milanesa al plato", d: "Con ensalada o fritas.", p: null, k: "p" },
+    { id: "milnapo", n: "Milanesa napolitana", d: "Con ensalada o fritas.", p: 28000, k: "p" },
+    { id: "milcab", n: "Milanesa a caballo", d: "Con ensalada o fritas.", p: 25000, k: "p" },
+    { id: "mil4q", n: "Milanesa 4 quesos", d: "Con ensalada o fritas.", p: 28000, k: "p" },
+    { id: "milsmash", n: "Milanesa Smash", d: "Queso muzzarella, queso cheddar, huevo frito y salteado de verdeo con panceta. Incluye papas.", p: 28000 }
+  ]},
+  { cat: "Postres", incl: "Postres en vaso", items: [
+    { id: "tiramisu", n: "Tiramisú", d: "", p: 6000 },
+    { id: "chocotorta", n: "Chocotorta", d: "", p: 6000 },
+    { id: "oreo", n: "Oreo", d: "", p: 6000 },
+    { id: "chocooreo", n: "Chocooreo", d: "", p: null },
+    { id: "quaker", n: "Turrón de Quaker", d: "", p: null }
+  ]},
+  { cat: "Extras", incl: "", items: [
+    { id: "xpapas", n: "Extra de papas (porción)", d: "", p: 10000 },
+    { id: "xched", n: "Extra de cheddar", d: "", p: 3000 },
+    { id: "xroq", n: "Extra de queso roquefort", d: "", p: 3000 }
+  ]},
+  { cat: "Bebidas", incl: "", items: [
+    { id: "cocav", n: "Coca-Cola de vidrio 1,25 l", d: "", p: 4000 },
+    { id: "spritev", n: "Sprite de vidrio 1,25 l", d: "", p: 4000 },
+    { id: "coca15", n: "Coca-Cola 1,5 l", d: "", p: 5300 },
+    { id: "sprite15", n: "Sprite 1,5 l", d: "", p: 5300 },
+    { id: "zero15", n: "Coca-Cola Zero 1,5 l", d: "", p: 5300 }
+  ]}
+];
+// ========================
+const $ = n => "$" + n.toLocaleString("es-AR");
+const ENVIO = "Envío a domicilio";
+const byId = {}; MENU.forEach(c => c.items.forEach(i => byId[i.id] = i));
+const cart = {}, last = {}; let mode = "Retiro en el local", cfg = null;
+const q = s => document.querySelector(s);
+const unit = l => byId[l.id].p == null ? null : byId[l.id].p + (l.med ? CONFIG.medallon : 0);
+const pending = () => Object.values(cart).some(l => unit(l) == null);
+const subtotal = () => Object.values(cart).reduce((a, l) => a + (unit(l) || 0) * l.qty, 0);
+const delivery = () => mode === ENVIO ? CONFIG.envio : 0;
+const money = () => pending() ? "A confirmar" : $(subtotal() + delivery());
+const count = () => Object.values(cart).reduce((a, l) => a + l.qty, 0);
+const label = l => { const x = [l.pan, l.acomp, l.med ? "con medallón extra" : ""].filter(Boolean); return byId[l.id].n + (x.length ? " (" + x.join(", ") + ")" : ""); };
+q("#brand img").alt = CONFIG.nombre;
+q('[data-m="' + ENVIO + '"]').textContent = ENVIO + " (+" + $(CONFIG.envio) + ")";
+
+function ctl(key) {
+  const l = cart[key];
+  return l
+    ? `<div class="qty"><button data-a="-" data-key="${key}" aria-label="Quitar uno">−</button><span>${l.qty}</span><button data-a="+" data-key="${key}" aria-label="Agregar uno">+</button></div>`
+    : `<button class="add" data-a="+" data-key="${key}">Agregar</button>`;
+}
+function menuCtl(i) {
+  if (!i.k) return ctl(i.id);
+  const keys = Object.keys(cart).filter(k => cart[k].id === i.id);
+  if (!keys.length) return `<button class="add" data-a="cfg" data-id="${i.id}">Agregar</button>`;
+  const tot = keys.reduce((a, k) => a + cart[k].qty, 0), key = cart[last[i.id]] ? last[i.id] : keys[keys.length - 1];
+  return `<div class="ctlwrap"><div class="qty"><button data-a="-" data-key="${key}" aria-label="Quitar uno">−</button><span>${tot}</span><button data-a="+" data-key="${key}" aria-label="Agregar uno">+</button></div><button type="button" class="more" data-a="cfg" data-id="${i.id}">Otras opciones</button></div>`;
+}
+let tt;
+function toast() {
+  const t = q("#toast"); t.textContent = "✓ Agregado al pedido"; t.classList.add("on");
+  clearTimeout(tt); tt = setTimeout(() => t.classList.remove("on"), 1400);
+}
+function toggleMed(k) {
+  const l = cart[k]; if (!l) return;
+  const nl = { ...l, med: !l.med }, nk = [nl.id, nl.pan, nl.acomp, nl.med ? 1 : 0].join("|");
+  const ent = Object.entries(cart); Object.keys(cart).forEach(x => delete cart[x]);
+  ent.forEach(([x, v]) => { const key = x === k ? nk : x, val = x === k ? nl : v; if (cart[key]) cart[key].qty += val.qty; else cart[key] = val; });
+  last[nl.id] = nk; render();
+}
+function render() {
+  q("#menu").innerHTML = MENU.map((c, n) => `<section id="c${n}"${c.promo ? ' class="promo"' : ""}><h2>${c.cat}</h2>${c.incl ? `<p class="incl">${c.incl}</p>` : ""}${c.items.map(i =>
+    `<div class="item"><div class="row"><div class="ph${FOTOS[i.id] ? "" : " emo"}" aria-hidden="true">${FOTOS[i.id] ? `<img src="${FOTOS[i.id]}" alt="" loading="lazy" data-e="${IC[c.cat] || "🍽️"}" onerror="this.replaceWith(document.createTextNode(this.dataset.e))">` : (IC[c.cat] || "🍽️")}</div><div class="info"><h3>${i.n}${i.tag ? `<span class="tag">${i.tag}</span>` : ""}</h3>${i.d ? `<p>${i.d}</p>` : ""}<b>${i.p == null ? "Precio a confirmar" : $(i.p)}</b></div></div>${i.agotado ? `<button class="add" disabled>Agotado</button>` : menuCtl(i)}</div>`).join("")}</section>`).join("");
+  q("#bar").classList.toggle("on", count() > 0);
+  q("#open").innerHTML = `<span>Ver pedido (${count()})</span><span>${money()}</span>`;
+  renderLines();
+}
+function renderLines() {
+  const keys = Object.keys(cart);
+  q("#lines").innerHTML = keys.length
+    ? keys.map(k => { const l = cart[k], u = unit(l); return `<div class="line"><span>${label(l)}${u == null ? "" : `<br><small>${$(u * l.qty)}</small>`}${byId[l.id].k === "b" ? `<br><button type="button" class="opt" data-a="med" data-key="${k}" aria-pressed="${!!l.med}">${l.med ? "✓ Con medallón extra · Quitar" : "+ Medallón extra (" + $(CONFIG.medallon) + ")"}</button>` : ""}</span>${ctl(k)}</div>`; }).join("")
+    : `<p class="empty">Todavía no agregaste nada. Sumá una hamburguesa del menú.</p>`;
+  renderSugs();
+  q("#sums").innerHTML = `<div class="sum"><span>Subtotal</span><span>${pending() ? "A confirmar" : $(subtotal())}</span></div>` +
+    (delivery() ? `<div class="sum"><span>Envío</span><span>${$(delivery())}</span></div>` : "") +
+    `<div class="total"><span>Total</span><span>${money()}</span></div>`;
+}
+function change(e) {
+  const b = e.target.closest("button[data-a]"); if (!b) return;
+  if (b.dataset.a === "cfg") return openCfg(b.dataset.id);
+  if (b.dataset.a === "med") return toggleMed(b.dataset.key);
+  const k = b.dataset.key, l = cart[k] || (cart[k] = { id: k, qty: 0 }), add = b.dataset.a === "+";
+  l.qty += add ? 1 : -1;
+  if (l.qty <= 0) delete cart[k]; else last[l.id] = k;
+  render();
+  if (add && !q("#sheet").classList.contains("on")) toast();
+  if (!count()) q("#sheet").classList.remove("on");
+}
+function openCfg(id) {
+  const i = byId[id];
+  cfg = { id, pan: i.k === "b" || i.k === "c" ? CONFIG.panes[0] : "", acomp: i.k === "p" ? "Ensalada" : "", med: false };
+  renderCfg(); q("#cfg").classList.add("on");
+}
+function seg(g, opts, cur) {
+  return `<div class="seg">${opts.map(([v, t]) => `<button type="button" data-g="${g}" data-v="${v}" aria-pressed="${cur === v}">${t}</button>`).join("")}</div>`;
+}
+function renderCfg() {
+  const i = byId[cfg.id], u = unit(cfg);
+  q("#cfgp").innerHTML = `<div class="top"><h2>${i.n}</h2><button class="x" data-g="close" aria-label="Cerrar">✕</button></div>` +
+    (i.k !== "p" ? `<p class="cfgh">${i.k === "c" ? "Pan (para las 3 burguers)" : "Pan a elección"}</p>${seg("pan", CONFIG.panes.map(p => [p, p]), cfg.pan)}` : "") +
+    (i.k === "b" ? `<p class="cfgh">Medallón extra</p>${seg("med", [["0", "Sin extra"], ["1", "Medallón extra +" + $(CONFIG.medallon)]], cfg.med ? "1" : "0")}` : "") +
+    (i.k === "p" ? `<p class="cfgh">Acompañamiento</p>${seg("acomp", [["Ensalada", "Ensalada"], ["Fritas", "Fritas"]], cfg.acomp)}` : "") +
+    `<button id="send" data-g="add">Agregar al pedido${u == null ? "" : " · " + $(u)}</button>`;
+}
+q("#cfg").addEventListener("click", e => {
+  if (e.target.id === "cfg") return q("#cfg").classList.remove("on");
+  const b = e.target.closest("button[data-g]"); if (!b) return;
+  const g = b.dataset.g;
+  if (g === "close") return q("#cfg").classList.remove("on");
+  if (g === "add") {
+    const k = [cfg.id, cfg.pan, cfg.acomp, cfg.med ? 1 : 0].join("|");
+    (cart[k] = cart[k] || { ...cfg, qty: 0 }).qty++; last[cfg.id] = k;
+    q("#cfg").classList.remove("on"); render(); return toast();
+  }
+  if (g === "med") cfg.med = b.dataset.v === "1"; else cfg[g] = b.dataset.v;
+  renderCfg();
+});
+q("#menu").addEventListener("click", change);
+q("#lines").addEventListener("click", change);
+q("#open").onclick = () => q("#sheet").classList.add("on");
+q("#close").onclick = () => q("#sheet").classList.remove("on");
+q("#sheet").addEventListener("click", e => { if (e.target.id === "sheet") q("#sheet").classList.remove("on"); });
+document.querySelectorAll(".seg button[data-m]").forEach(b => b.onclick = () => {
+  mode = b.dataset.m;
+  document.querySelectorAll(".seg button[data-m]").forEach(x => x.setAttribute("aria-pressed", x === b));
+  q("#addrBox").hidden = mode !== ENVIO;
+  q("#retiroBox").hidden = mode === ENVIO;
+  render();
+});
+q("#sendOrder").onclick = () => {
+  const name = q("#name").value.trim(), addr = q("#addr").value.trim(), err = q("#err");
+  if (!count()) { err.textContent = "Agregá al menos un producto."; return; }
+  if (!name) { err.textContent = "Escribí tu nombre para que sepamos a quién entregarle."; q("#name").focus(); return; }
+  if (mode === ENVIO && !addr) { err.textContent = "Escribí la dirección de entrega."; q("#addr").focus(); return; }
+  err.textContent = "";
+  try { localStorage.setItem("smash_cliente", JSON.stringify({ name, addr, pay: q("#pay").value, mode })); } catch (_) {}
+  const lines = Object.values(cart).map(l => `${l.qty}x ${label(l)}${unit(l) == null ? "" : " - " + $(unit(l) * l.qty)}`).join("\n");
+  const note = q("#note").value.trim();
+  const msg = `*Nuevo pedido - ${CONFIG.nombre}*\n\n${lines}${delivery() ? `\nEnvío - ${$(delivery())}` : ""}\n\n*Total: ${pending() ? "a confirmar" : $(subtotal() + delivery())}*\n\nNombre: ${name}\nEntrega: ${mode}${mode === ENVIO ? "\nDirección: " + addr : ""}\nPago: ${q("#pay").value}${note ? "\nAclaraciones: " + note : ""}`;
+  const a = document.createElement("a");
+  a.href = `https://wa.me/${CONFIG.whatsapp}?text=${encodeURIComponent(msg)}`;
+  a.target = "_blank"; a.rel = "noopener"; document.body.appendChild(a); a.click(); a.remove();
+};
+// Sugerencias antes de enviar
+const GRUPOS = [["papas", ["xpapas"], ["xpapas"]],
+  ["bebida", ["cocav", "spritev", "coca15", "sprite15", "zero15"], ["coca15", "sprite15"]],
+  ["postre", ["tiramisu", "chocotorta", "oreo", "chocooreo", "quaker"], ["chocotorta", "tiramisu"]]];
+function renderSugs() {
+  const ids = Object.values(cart).map(l => l.id);
+  const sug = GRUPOS.filter(g => !g[1].some(x => ids.includes(x))).flatMap(g => g[2]).filter(id => byId[id]);
+  q("#sugs").innerHTML = ids.length && sug.length
+    ? `<p class="cfgh">¿Sumás algo más?</p><div class="chips">${sug.map(id => `<button type="button" class="chip" data-a="+" data-key="${id}">+ ${byId[id].n}${byId[id].p == null ? "" : " · " + $(byId[id].p)}</button>`).join("")}</div>` : "";
+}
+q("#sugs").addEventListener("click", change);
+
+// Estado abierto / cerrado (hora de Argentina)
+const DIAS = ["domingo", "lunes", "martes", "miércoles", "jueves", "viernes", "sábado"];
+function estado(date) {
+  const p = new Intl.DateTimeFormat("en-US", { timeZone: "America/Argentina/Buenos_Aires", weekday: "short", hour: "numeric", minute: "numeric", hour12: false }).formatToParts(date);
+  const g = t => p.find(x => x.type === t).value;
+  const wd = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"].indexOf(g("weekday"));
+  const mins = (+g("hour") % 24) * 60 + +g("minute"), hoy = CONFIG.dias.includes(wd);
+  if (hoy && mins >= CONFIG.abre * 60) return { open: true, text: "Abierto ahora, hasta las 00:00" };
+  const hora = CONFIG.abre + ":00";
+  if (hoy) return { open: false, text: "Cerrado, abrimos hoy a las " + hora };
+  for (let d = 1; d <= 7; d++) if (CONFIG.dias.includes((wd + d) % 7))
+    return { open: false, text: "Cerrado, abrimos " + (d === 1 ? "mañana" : "el " + DIAS[(wd + d) % 7]) + " a las " + hora };
+}
+function showStatus() {
+  const e = estado(new Date());
+  q("#status").textContent = e.text; q("#dot").classList.toggle("off", !e.open);
+  q("#closedNote").textContent = e.open ? "" : "Ahora estamos cerrados. Podés enviar el pedido y lo atendemos apenas abramos.";
+}
+showStatus(); setInterval(showStatus, 60000);
+
+// Barra de categorías
+const nav = q("#nav");
+const construirNav = () => { nav.innerHTML = MENU.map((c, n) => `<a href="#c${n}">${c.cat}</a>`).join(""); activa = -1; };
+let activa = -1, tick = false;
+function marcar() {
+  tick = false; let a = 0;
+  MENU.forEach((c, n) => { const e = q("#c" + n); if (e && e.getBoundingClientRect().top <= 110) a = n; });
+  if (a === activa) return; activa = a;
+  [...nav.children].forEach((x, n) => x.classList.toggle("on", n === a));
+  nav.scrollTo({ left: nav.children[a].offsetLeft - 16, behavior: "smooth" });
+}
+addEventListener("scroll", () => { if (!tick) { tick = true; requestAnimationFrame(marcar); } }, { passive: true });
+construirNav(); marcar();
+
+// Datos de transferencia
+const info = q("#payInfo");
+info.innerHTML = `Alias: <b>${CONFIG.alias}</b><button type="button" id="copyAlias">Copiar alias</button><br>Mercado Pago a nombre de ${CONFIG.titular}<br><small>Hacé la transferencia y mandanos el comprobante por WhatsApp.</small>`;
+q("#pay").onchange = () => { info.hidden = q("#pay").value !== "Transferencia"; };
+q("#copyAlias").onclick = async e => { try { await navigator.clipboard.writeText(CONFIG.alias); e.target.textContent = "¡Copiado!"; } catch (_) { e.target.textContent = CONFIG.alias; } };
+// Ubicación
+const mapa = "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(CONFIG.direccion + ", Argentina");
+q("#foot").innerHTML = `<p><b>${CONFIG.nombre}</b><br>${CONFIG.direccion}<br>Jueves a martes, de 19:00 a 00:00</p><a class="btn" href="${mapa}" target="_blank" rel="noopener">Cómo llegar</a><a class="btn" href="https://wa.me/${CONFIG.whatsapp}" target="_blank" rel="noopener">Escribinos por WhatsApp</a>`;
+q("#retiroBox").innerHTML = `Retirás en ${CONFIG.direccion}. <a href="${mapa}" target="_blank" rel="noopener">Cómo llegar</a>`;
+
+// Datos guardados del cliente
+try {
+  const g = JSON.parse(localStorage.getItem("smash_cliente") || "null");
+  if (g) {
+    q("#name").value = g.name || ""; q("#addr").value = g.addr || "";
+    if (g.pay) q("#pay").value = g.pay;
+    q("#pay").onchange();
+    if (g.mode === ENVIO) q('[data-m="' + ENVIO + '"]').click();
+  }
+} catch (_) {}
+render();
+
+// Carta desde Google Sheets (si falla, queda la carta incluida en este archivo)
+function parseCSV(t) {
+  const rows = []; let r = [], c = "", inq = false;
+  for (let i = 0; i < t.length; i++) {
+    const ch = t[i];
+    if (inq) { if (ch === '"') { if (t[i + 1] === '"') { c += '"'; i++; } else inq = false; } else c += ch; }
+    else if (ch === '"') inq = true;
+    else if (ch === ",") { r.push(c); c = ""; }
+    else if (ch === "\n" || ch === "\r") { if (ch === "\r" && t[i + 1] === "\n") i++; r.push(c); rows.push(r); r = []; c = ""; }
+    else c += ch;
+  }
+  if (c || r.length) { r.push(c); rows.push(r); }
+  return rows;
+}
+function menuDesdeCSV(t) {
+  const rows = parseCSV(t).filter(x => x.some(c => c.trim()));
+  const h = rows.shift().map(x => x.trim().toLowerCase()), cats = [], vistos = {};
+  rows.forEach(x => {
+    const g = n => (x[h.indexOf(n)] || "").trim(), cat = g("categoria"), nom = g("nombre");
+    if (!cat || !nom) return;
+    if (!vistos[cat]) { vistos[cat] = { cat, promo: cat.toLowerCase().startsWith("promo"), incl: "", items: [] }; cats.push(vistos[cat]); }
+    if (!vistos[cat].incl) vistos[cat].incl = g("aviso");
+    const pr = g("precio").replace(/\D/g, "");
+    vistos[cat].items.push({
+      id: g("id") || nom.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[^a-z0-9]+/g, ""),
+      n: nom, d: g("descripcion"), p: pr ? +pr : null,
+      k: { hamburguesa: "b", combo: "c", plato: "p" }[g("tipo").toLowerCase()] || "",
+      agotado: /^(si|sí|x)$/i.test(g("agotado")), tag: g("etiqueta"), foto: g("foto")
+    });
+  });
+  return cats;
+}
+async function cargarHoja() {
+  try {
+    const ctl = new AbortController(), t = setTimeout(() => ctl.abort(), 6000);
+    const r = await fetch("/.netlify/functions/menu", { signal: ctl.signal, cache: "no-store" }); clearTimeout(t);
+    if (!r.ok) throw 0;
+    const cats = await r.json(); if (!Array.isArray(cats) || !cats.length) throw 0;
+    MENU.length = 0; MENU.push(...cats);
+    Object.keys(byId).forEach(k => delete byId[k]);
+    MENU.forEach(c => c.items.forEach(i => { byId[i.id] = i; if (i.foto) FOTOS[i.id] = i.foto; }));
+    Object.keys(cart).forEach(k => { if (!byId[cart[k].id]) delete cart[k]; });
+    construirNav(); marcar(); render();
+  } catch (_) {}
+}
+cargarHoja();
+</script>
+</body>
+</html>
