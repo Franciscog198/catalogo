@@ -58,7 +58,14 @@ function render() {
         <div class="f"><input class="w" data-c="${ci}" data-i="${ii}" data-f="n" value="${esc(i.n)}" placeholder="Nombre">
         <input class="w" data-c="${ci}" data-i="${ii}" data-f="d" value="${esc(i.d)}" placeholder="Descripción">
         <input type="number" data-c="${ci}" data-i="${ii}" data-f="p" value="${i.p ?? ""}" placeholder="Precio (vacío = a confirmar)">
-        <select data-c="${ci}" data-i="${ii}" data-f="k">${[["", "Producto simple"], ["b", "Hamburguesa (pan + medallón extra)"], ["c", "Combo (elige pan)"], ["p", "Plato (ensalada o fritas)"]].map(([v, t]) => `<option value="${v}" ${(i.k || "") === v ? "selected" : ""}>${t}</option>`).join("")}</select>
+          <select data-c="${ci}" data-i="${ii}" data-f="k">
+            ${[
+                ["", "Producto simple"],
+                ["b", "Hamburguesa"],
+                ["c", "Combo"],
+                ["p", "Plato (elige acompañamiento)"]
+              ].map(([v, t]) => `<option value="${v}" ${(i.k || "") === v ? "selected" : ""}>${t}</option>`).join("")}
+          </select>        
         <input data-c="${ci}" data-i="${ii}" data-f="tag" value="${esc(i.tag)}" placeholder="Etiqueta (ej: Más pedidos)">
         <div class="row" style="margin:0"><label class="chk"><input type="checkbox" data-c="${ci}" data-i="${ii}" data-f="agotado" ${i.agotado ? "checked" : ""}>Agotado</label><button class="del" data-a="delItem" data-c="${ci}" data-i="${ii}">Borrar</button></div></div></div>`).join("")}
       <div class="row"><button class="add" data-a="addItem" data-c="${ci}">+ Producto</button></div></div>`).join("") +
